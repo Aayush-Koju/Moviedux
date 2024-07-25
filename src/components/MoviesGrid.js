@@ -5,10 +5,14 @@ export default function MoviesGrid() {
 
     const [movies, setMovies] = useState([]);
 
-    const m = ["a", "b", "c"];
+    
+    useEffect(() => {
+        const m = ["a", "b", "c"];
+        setMovies(m);
+    }, []);
 
 
     return(
-        <div></div>
+        <div>{movies.length}</div>
     );
 }
