@@ -48,7 +48,7 @@ export default function MoviesGrid() {
         return movie.rating >= 8;
 
       case "Ok":
-        return movie.rating >= 5 && rating < 8;
+        return movie.rating >= 5 && movie.rating < 8;
 
       case "Bad":
         return movie.rating < 5;
@@ -60,7 +60,9 @@ export default function MoviesGrid() {
 
   const filteredMovies = movies.filter(
     (movie) =>
-      matchesGenre(movie, genre) && matchesSearchTerm(movie, searchTerm)
+      matchesGenre(movie, genre) &&
+      matchesRating(movie, rating) &&
+      matchesSearchTerm(movie, searchTerm)
   );
 
   return (
